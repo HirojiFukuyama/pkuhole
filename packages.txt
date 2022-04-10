@@ -1,7 +1,0 @@
-torch
-numpy
-gensim
-streamlit
-tqdm
-datetime
-transformers

@@ -1,7 +1,4 @@
-torch
-numpy
-gensim
-streamlit
-tqdm
-datetime
-transformers
+gensim==4.1.2
+numpy==1.22.1
+streamlit==1.8.1
+torch==1.11.0
