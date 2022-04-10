@@ -8,7 +8,7 @@ def gen(model, wv, dz, count=5):
     """generate replies"""
 
     if dz == "\n[Alice]":
-        return 
+        return
 
     del_lst = []
     lst = list(dz)
