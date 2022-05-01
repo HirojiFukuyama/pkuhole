@@ -10,7 +10,7 @@ wv = Word2Vec.load("word_model_paths/hole-merge").wv
 
 st.title("P大树洞-爱的引论")
 
-choice = st.radio("选择一个模型", ("GRU", "LSTM"))
+choice = st.radio("选择一个模型", ("LSTM", "GRU"))
 
 if choice == "GRU":
     with st.spinner("载入模型中..."):
