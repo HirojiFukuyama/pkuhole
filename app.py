@@ -14,9 +14,9 @@ choice = st.radio("选择一个模型", ("LSTM", "GRU"))
 
 if choice == "GRU":
     with st.spinner("载入模型中..."):
-        model = torch.load("lgg_model_paths/hole02_2022-04-01_10_12_06")
+        model = torch.load("lgg_model_paths/hole-merge_2022-05-01_04_53_11", map_location='cpu')
         model.eval()
-        wv = Word2Vec.load("word_model_paths/hole02").wv
+        wv = Word2Vec.load("word_model_paths/hole-merge").wv
 
 elif choice == "LSTM":
     with st.spinner("载入模型中..."):
