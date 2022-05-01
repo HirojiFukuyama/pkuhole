@@ -24,7 +24,7 @@ elif choice == "LSTM":
         model.eval()
         wv = Word2Vec.load("word_model_paths/hole-merge").wv
 
-count = st.number_input("想要几位小可爱回复你呢？", 1, 10, 5, 1)
+count = st.number_input("想要几位小可爱回复你呢？", 1, 20, 5, 1)
 
 dz = st.text_input("发一条树洞吧！")
 
