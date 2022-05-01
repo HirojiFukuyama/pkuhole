@@ -4,7 +4,7 @@ import torch
 def softmax(x):
     return np.exp(x) / np.sum(np.exp(x))
 
-def gen(model, wv, dz, count=5):
+def gen(model, wv, dz, count=5, device='cpu'):
     """generate replies"""
 
     if dz == "\n[Alice]":
@@ -28,7 +28,7 @@ def gen(model, wv, dz, count=5):
     while i < count:
         data = np.stack((data,))
         x = torch.Tensor(data)
-        x = x.to(torch.long)
+        x = x.to(torch.long).to(device)
         y = model(x)[0][-1]
         p = y.detach().numpy()
         p = softmax(p)
