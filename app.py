@@ -8,7 +8,7 @@ model.eval()
 wv = Word2Vec.load("word_model_paths/hole-merge").wv
 
 
-st.title("P大树洞-爱的引论")
+st.title("P大树洞-爱の引论")
 
 choice = st.radio("选择一个模型", ("LSTM", "GRU"))
 
