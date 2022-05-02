@@ -3,7 +3,7 @@ import torch
 from gensim.models import Word2Vec
 from gen import gen
 
-model = torch.load("lgg_model_paths/hole-merge_2022-05-01_02_27_10", map_location='cpu')
+model = torch.load("lgg_model_paths/hole-merge_lstm_drop_2022-05-02_01_19_40", map_location='cpu')
 model.eval()
 wv = Word2Vec.load("word_model_paths/hole-merge").wv
 
@@ -20,11 +20,11 @@ if choice == "GRU":
 
 elif choice == "LSTM":
     with st.spinner("载入模型中..."):
-        model = torch.load("lgg_model_paths/hole-merge_2022-05-01_02_27_10", map_location='cpu')
+        model = torch.load("lgg_model_paths/hole-merge_lstm_drop_2022-05-02_01_19_40", map_location='cpu')
         model.eval()
         wv = Word2Vec.load("word_model_paths/hole-merge").wv
 
-count = st.number_input("想要几位小可爱回复你呢？", 1, 20, 5, 1)
+count = st.number_input("选择回复数量", 1, 20, 5, 1)
 
 dz = st.text_input("发一条树洞吧！")
 
