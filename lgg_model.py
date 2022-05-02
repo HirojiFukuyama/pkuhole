@@ -2,6 +2,7 @@ import torch
 from torch import dropout, nn
 import numpy as np
 import datetime as dt
+from torch.utils.tensorboard import SummaryWriter
 device=torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def softmax(x):
@@ -87,3 +88,14 @@ class GRU_enhanced(nn.Module):
         data, _ = self.GRU(data, a0)
         out = self.Linear(data)
         return out
+
+
+
+
+if __name__ == "__main__":
+    NET = LSTM_enhanced(3061, 256, 256, 3, 0.1)
+    input = torch.ones((32, 10), dtype=torch.long)
+    output = NET(input)
+    writer = SummaryWriter("graph")
+    writer.add_graph(NET, input)
+    writer.close()
