@@ -4,8 +4,9 @@ from gensim.models import Word2Vec
 from gen import gen
 
 
-# last one: "lgg_model_paths/hole-merge_lstm_drop_2022-05-02_01_19_40"
-model = torch.load("lgg_model_paths/hole-merge_input30_2022-05-02_13_24_14", map_location='cpu')
+# last last one: "lgg_model_paths/hole-merge_lstm_drop_2022-05-02_01_19_40"
+# last one: "lgg_model_paths/hole-merge_input30_2022-05-02_13_24_14"
+model = torch.load("lgg_model_paths/Epoch_20", map_location='cpu') # input50
 model.eval()
 wv = Word2Vec.load("word_model_paths/hole-merge").wv
 
@@ -22,7 +23,7 @@ if choice == "GRU":
 
 elif choice == "LSTM":
     with st.spinner("载入模型中..."):
-        model = torch.load("lgg_model_paths/hole-merge_input30_2022-05-02_13_24_14", map_location='cpu')
+        model = torch.load("lgg_model_paths/Epoch_20", map_location='cpu')
         model.eval()
         wv = Word2Vec.load("word_model_paths/hole-merge").wv
 
