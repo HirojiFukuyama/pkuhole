@@ -21,6 +21,8 @@ class MyDataset(Dataset):
 
         wv = word_model.wv
         self.vocabulary_length = len(wv)
+        
+        self.word_model = word_model
 
         # corpus中有的字（词）因为出现次数过少而没有出现在wv中，所以要对他们进行删除
         lst = list(text)
