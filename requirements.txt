@@ -1,4 +1,4 @@
 gensim==4.1.2
 numpy==1.21.5
-streamlit==1.8.1
+streamlit==1.6 # 1.8.1 is the latest version
 torch==1.11.0
