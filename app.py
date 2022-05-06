@@ -17,7 +17,7 @@ st.title("P大树洞-爱の引论")
 st.subheader("欢迎来到P大树洞！@HoleAI")
 choice = st.radio("选择一个模型", ("HoleAI-small", "HoleAI-medium", "HoleAI-large", "HoleAI-ultra"))
 
-if __name__ == "__main__":
+def main():
     count = st.number_input("选择树洞长度", 1, 20, 5, 1)
     dz = st.text_input("发一条树洞吧！")
     dz += "\n[Alice]"
@@ -60,3 +60,6 @@ if __name__ == "__main__":
             end_time = time.time()
             st.success("本次生成耗时：{:.4f}秒".format(end_time-start_time))
             st.balloons()
+
+if __name__ == "__main__":
+    main()
