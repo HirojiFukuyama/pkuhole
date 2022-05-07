@@ -13,11 +13,6 @@ def load_wv(wv_path):
 def load_model(model_path):
     return torch.load(model_path, map_location='cpu')
 
-# default:
-# last last last one: "lgg_model_paths/hole-merge_lstm_drop_2022-05-02_01_19_40"
-# last last one: "lgg_model_paths/hole-merge_input30_2022-05-02_13_24_14"
-# last one: "lgg_model_paths/merge_input50"
-
 st.title("P大树洞-爱の引论")
 st.subheader("欢迎来到P大树洞！@HoleAI")
 choice = st.sidebar.radio("选择一个模型", ("HoleAI-small", "HoleAI-medium", "HoleAI-large", "HoleAI-ultra"))
