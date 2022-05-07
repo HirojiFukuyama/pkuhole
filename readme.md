@@ -1,9 +1,9 @@
 # PKU hole generator
 
 ## @HoleAI Models
-|Name|Size|Input words|Hidden size|Number of layers|Number of epochs|
+|Name|Size|RNN type|Hidden size|Number of layers|Dropout rate|
 | :------: | :------: | :------: | :------: | :------: | :------: |
-|HoleAI-small|2.3MB|10|100|3|50|
-|HoleAI-medium|3.8MB|30|128|3|50|
-|HoleAI-large|12.6MB|50|256|3|50|
-|HoleAI-ultra|37.8MB|30|512|3|50|
+|HoleAI-small|3.4MB|GRU|100|4|0.5|
+|HoleAI-medium|12.6MB|LSTM|256|3|0.1|
+|HoleAI-large|37.8MB|LSTM|512|3|0.1|
+|HoleAI-ultra|46.2MB|LSTM|512|4|0.1|

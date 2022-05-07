@@ -55,12 +55,12 @@ def main():
 
         elif choice == "HoleAI-large":
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/merge_input30_512") # 20 epochs
+                model = load_model("lgg_model_paths/hole-merge_30_512_3_50_2022-05-04_03_17_17")
                 model.eval()
 
         elif choice == "HoleAI-ultra":
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/hole-merge_30_512_3_50_2022-05-04_03_17_17") # 50 epochs
+                model = load_model("lgg_model_paths/hole-merge_30_512_4_50_2022-05-07_09_43_06")
                 model.eval()
 
         else:
