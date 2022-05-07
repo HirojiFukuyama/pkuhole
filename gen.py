@@ -4,10 +4,10 @@ import torch
 def softmax(x):
     return np.exp(x) / np.sum(np.exp(x))
 
-def gen(model, wv, dz, count=5, device='cpu'):
+def gen(model, wv, dz, flag, count=5, device='cpu'):
     """generate replies"""
 
-    if dz == "\n[Alice]":
+    if flag == False:
         return
 
     del_lst = []
