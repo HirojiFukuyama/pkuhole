@@ -6,7 +6,7 @@ import time
 # st.title("Hello World!")
 
 
-model = torch.load("lgg_model_paths/hole-merge_2022-05-01_04_53_11", map_location='cpu') # input50
+model = torch.load("lgg_model_paths/merge_input50", map_location='cpu') # input50
 model.eval()
 wv = Word2Vec.load("word_model_paths/hole-merge").wv
 

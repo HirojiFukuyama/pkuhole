@@ -45,12 +45,12 @@ def main():
 
         if choice == "HoleAI-small":
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/hole-merge_2022-05-01_04_53_11")
+                model = load_model("lgg_model_paths/hole-merge_50_128_3_50_2022-05-07_14_21_34")
                 model.eval()
 
         elif choice == "HoleAI-medium":
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/merge_input50")
+                model = load_model("lgg_model_paths/hole-merge_50_256_3_50_2022-05-07_14_27_01")
                 model.eval()
 
         elif choice == "HoleAI-large":
@@ -65,7 +65,7 @@ def main():
 
         else:
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/merge_input50") # medium
+                model = load_model("lgg_model_paths/hole-merge_50_256_3_50_2022-05-07_14_27_01") # medium
                 model.eval()
 
         with st.spinner("生成中..."):
