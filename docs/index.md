@@ -4,11 +4,11 @@
 
 This is the course project for the NLP class of **Introduction to AI(人工智能引论)** in [***Peking University***](https://www.pku.edu.cn).
 
-The project was mainly inspired by the [*hole(树洞)*](https://pkuhelper.pku.edu.cn/hole/) in Peking University, which is a perfect corpus for NLP tasks.
+The project was mainly inspired by the [hole(树洞)](https://pkuhelper.pku.edu.cn/hole/) in Peking University, which is a perfect corpus for NLP tasks.
 
-It is designed in light of causal language modeling and inplemented in [Python](https://www.python.org) and [PyTorch](https://pytorch.org).
+It is designed according to the principle of causal language modeling and inplemented in [Python](https://www.python.org) and [PyTorch](https://pytorch.org).
 
-We trained our LSTMs on the hole corpus, and then we used the trained model to generate comments or replies based on the user's input. We name the models as ***HoleAI***. 
+We trained our LSTMs on the hole corpus, and then we used the trained models to generate comments or replies based on the user's input. We name the models ***HoleAI***. 
 
 You can try these models with different sizes on your own with the link provided below.
 
