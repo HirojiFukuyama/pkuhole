@@ -1,8 +1,18 @@
-# PKU Hole Generator
+## Introduction
 
-## Principles
+This is the course project for the NLP class of **Introduction to AI(人工智能引论)** in [***Peking University***](https://www.pku.edu.cn).
 
-- Multi-layer LSTMs and GRUs trained from scratch
+The project was mainly inspired by the [*hole(树洞)*](https://pkuhelper.pku.edu.cn/hole/) in Peking University, which is a perfect corpus for NLP tasks.
+
+It is designed in light of causal language modeling and inplemented in [Python](https://www.pku.edu.cn) and [Pytorch](https://pytorch.org).
+
+We trained our LSTMs on the hole corpus, and then we used the trained model to generate comments or replies based on the user's input. We name the models as ***HoleAI***. 
+
+You can try these models with different sizes on your own with the link provided below.
+
+## Our network
+
+- Multi-layer LSTMs trained from scratch
 - Fine-tune pretrained GPT-2 in the future
 
 ## Demo
@@ -35,18 +45,22 @@ popi
 
 ## 来当洞主吧！（迫真）
 
-[😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
+[😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
 
-## Repository Location
+## Model details @HoleAI
 
-Click [here](https://github.com/HirojiFukuyama/pkuhole) for more details.
+|Name|Size|Input words|Hidden size|Number of layers| Final val loss|
+| :------: | :------: | :------: | :------: | :------: | :------: |
+|HoleAI-small|4.7MB|50|128|3|1.5476|
+|HoleAI-medium|12.6MB|50|256|3|0.4562|
+|HoleAI-large|37.8MB|30|512|3|0.4354|
+|HoleAI-ultra|46.2MB|30|512|4|0.4640|
 
 ## Support or Contact
 
 Feel free to email ***rtzhao1912@gmail.com*** if you have any question or supplement.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/HirojiFukuyama/pkuhole/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Credits
+- *Yuxuan Kuang* from [School of EECS, Peking Univeristy](https://eecs.pku.edu.cn)
+- *Hongyun Chen* from [School of EECS, Peking University](https://eecs.pku.edu.cn)
+- *Tianyuan Wang* from [Yuanpei College, Peking University](https://yuanpei.pku.edu.cn)
