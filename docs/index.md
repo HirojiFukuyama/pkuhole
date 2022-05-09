@@ -1,34 +1,49 @@
-## Welcome to GitHub Pages
+# PKU Hole Generator
 
-You can use the [editor on GitHub](https://github.com/HirojiFukuyama/pkuhole/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## Principles
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Multi-layer LSTMs and GRUs trained from scratch
+- Fine-tune pretrained GPT-2 in the future
 
-### Markdown
+## Demo
+```
+😅
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[Alice] 表白
 
-```markdown
-Syntax highlighted code block
+[Bob] Bob
 
-# Header 1
-## Header 2
-### Header 3
+[Bob] 来了！
 
-- Bulleted
-- List
+[Carol] 摸摸，因为要留到一个认真的日子！
 
-1. Numbered
-2. List
+[Bob] 谢谢A 爱你😘
+```
+```
+popi
 
-**Bold** and _Italic_ and `Code` text
+[Alice] 身高体重颜值
 
-[Link](url) and ![Image](src)
+[洞主] 170，保密，自我感觉中上（会被人偶尔称赞的程度！）
+
+[Bob] Re 洞主: dz是嘉心糖吗
+
+[洞主] Re Bob: 确实
+
+[Alice] Re 洞主: 或者想聊聊也行，我还挺会聊天的
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## 来当洞主吧！（迫真）
 
-### Jekyll Themes
+[😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
+
+## Repository Location
+
+Click [here](https://github.com/HirojiFukuyama/pkuhole) for more details.
+
+## Support or Contact
+
+Feel free to email ***rtzhao1912@gmail.com*** if you have any question or supplement.
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/HirojiFukuyama/pkuhole/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
