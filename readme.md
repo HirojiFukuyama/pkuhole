@@ -1,4 +1,4 @@
-# PKU hole generator
+# PKU Hole Generator
 
 ## @HoleAI Models
 |Name|Size|Input words|Hidden size|Number of layers| Final val loss|
