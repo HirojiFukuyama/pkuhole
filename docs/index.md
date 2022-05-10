@@ -1,5 +1,7 @@
 # PKU Hole Generator
 
+**English** [中文](chinese.md)
+
 ## Introduction
 
 This is the course project for the NLP class of **Introduction to AI(人工智能引论)** in [***Peking University***](https://www.pku.edu.cn).
@@ -45,9 +47,10 @@ popi
 [Alice] Re 洞主: 或者想聊聊也行，我还挺会聊天的
 ```
 
-## 来当洞主吧！（迫真）
+## Let's try!
 
-[😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
+<!-- [😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py) -->
+[![](pku_icon.png)](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
 
 ## Model details @HoleAI
 
