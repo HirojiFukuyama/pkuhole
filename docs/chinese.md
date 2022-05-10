@@ -50,7 +50,7 @@ popi
 ## 来当洞主吧！（迫真）
 
 <!-- [😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py) -->
-[![](pku_icon.png)](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
+[![](Unknown)](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
 
 ## 模型细节 @HoleAI
 

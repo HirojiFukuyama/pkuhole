@@ -50,7 +50,7 @@ popi
 ## Let's try!
 
 <!-- [😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py) -->
-[![](pku_icon.png)](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
+[![](Unknown)](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
 
 ## Model details @HoleAI
 
