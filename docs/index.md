@@ -63,6 +63,6 @@ popi
 Feel free to email ***rtzhao1912@gmail.com*** if you have any question or supplement.
 
 ## Credits
-- *Yuxuan Kuang* from [School of EECS, Peking Univeristy](https://eecs.pku.edu.cn)
+- *Yuxuan Kuang* from [School of EECS, Peking University](https://eecs.pku.edu.cn)
 - *Hongyun Chen* from [School of EECS, Peking University](https://eecs.pku.edu.cn)
 - *Tianyuan Wang* from [Yuanpei College, Peking University](https://yuanpei.pku.edu.cn)
