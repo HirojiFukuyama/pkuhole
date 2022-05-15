@@ -14,7 +14,7 @@ We trained our LSTMs on the hole corpus, and then we used the trained models to 
 
 You can try these models with different sizes on your own with the link provided below.
 
-## Our network
+## Our Network
 
 - Multi-layer LSTMs trained from scratch
 - Fine-tune pretrained GPT-2 in the future
@@ -47,12 +47,12 @@ popi
 [Alice] Re 洞主: 或者想聊聊也行，我还挺会聊天的
 ```
 
-## Let's try!
+## Let's Try!
 
 <!-- [😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py) -->
 [![](Unknown)](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
 
-## Model details @HoleAI
+## Model Details @HoleAI
 
 |Name|Size|Input words|Hidden size|Number of layers| Final val loss|
 | :------: | :------: | :------: | :------: | :------: | :------: |
