@@ -1,6 +1,6 @@
 # P大树洞生成器
 
-**中文** [English](index.md)
+**中文** | [English](index.md)
 
 ## 简介
 

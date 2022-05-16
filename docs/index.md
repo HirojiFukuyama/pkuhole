@@ -1,6 +1,6 @@
 # PKU Hole Generator
 
-**English** [中文](chinese.md)
+**English** | [中文](chinese.md)
 
 ## Introduction
 
