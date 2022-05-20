@@ -102,6 +102,7 @@ class GRU_enhanced(nn.Module):
         self.Embedding = nn.Embedding(num_embeddings=words_num, embedding_dim=embedding_dim)
         self.GRU = nn.GRU(embedding_dim, hidden_size, num_layers, batch_first=True, dropout=dropout)
         self.Linear = nn.Linear(hidden_size, words_num)
+        self.norm = Norm(hidden_size)
 
 
     def forward(self, data):
@@ -109,7 +110,7 @@ class GRU_enhanced(nn.Module):
         a0 = torch.zeros(self.num_layers, data.shape[0], self.hidden_size, device=device)
         data, _ = self.GRU(data, a0)
         # add layer norm
-        data = Norm(self.hidden_size)(data)
+        data = self.norm(data)
         out = self.Linear(data)
         return out
 
