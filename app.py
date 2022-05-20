@@ -65,7 +65,7 @@ def main():
 
         else:
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/hole-merge_50_256_3_50_2022-05-07_14_27_01") # medium
+                model = load_model("lgg_model_paths/hole-merge_30_512_3_50_2022-05-04_03_17_17") # large
                 model.eval()
 
         with st.spinner("生成中..."):
