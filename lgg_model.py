@@ -9,8 +9,26 @@ import copy
 # from torch.utils.tensorboard import SummaryWriter
 device=torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+
 def softmax(x):
     return np.exp(x) / np.sum(np.exp(x))
+
+
+# Layer Normalization
+class Norm(nn.Module):
+    def __init__(self, d_model, eps = 1e-6):
+        super().__init__()
+    
+        self.size = d_model
+        # create two learnable parameters to calibrate normalisation
+        self.alpha = nn.Parameter(torch.ones(self.size))
+        self.bias = nn.Parameter(torch.zeros(self.size))
+        self.eps = eps
+    def forward(self, x):
+        norm = self.alpha * (x - x.mean(dim=-1, keepdim=True)) \
+        / (x.std(dim=-1, keepdim=True) + self.eps) + self.bias
+        return norm
+
 
 # 'vanilla' baseline model
 class vanilla_LSTM(nn.Module):
@@ -75,7 +93,7 @@ class vanilla_GRU(nn.Module):
 
 
 ######
-# Tune the dropout rate by yourself
+# Tune the dropout rate by yourself, and add layer norm
 class GRU_enhanced(nn.Module):
     def __init__(self, words_num, embedding_dim, hidden_size, num_layers, dropout=0.5):
         super().__init__()
@@ -90,6 +108,8 @@ class GRU_enhanced(nn.Module):
         data = self.Embedding(data)
         a0 = torch.zeros(self.num_layers, data.shape[0], self.hidden_size, device=device)
         data, _ = self.GRU(data, a0)
+        # add layer norm
+        data = Norm(self.hidden_size)(data)
         out = self.Linear(data)
         return out
 

@@ -14,10 +14,13 @@ We trained our LSTMs on the hole corpus, and then we used the trained models to 
 
 You can try these models with different sizes on your own with the link provided below.
 
-## Our Network
+## Neural Network Architecture
 
-- Multi-layer LSTMs trained from scratch
-- Fine-tune pretrained GPT-2 in the future
+- Word Embedding
+- Multi-layer LSTM
+- Dropout
+- Layer Normalization
+- Linear
 
 ## Demo
 ```
