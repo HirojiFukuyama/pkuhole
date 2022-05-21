@@ -1,7 +1,7 @@
 import streamlit as st
 import torch
 from gensim.models import Word2Vec
-from gen import gen
+from utils import gen
 import time
 # st.title("Hello World!")
 

@@ -1,9 +1,8 @@
 import streamlit as st
 import torch
 from gensim.models import Word2Vec
-from gen import gen
+from utils import *
 import time
-import random
 
 @st.cache
 def load_wv(wv_path):
@@ -18,15 +17,6 @@ st.subheader("欢迎来到P大树洞！@HoleAI")
 choice = st.sidebar.radio("选择一个模型", ("HoleAI-small", "HoleAI-medium", "HoleAI-large", "HoleAI-ultra"), index=2)
 emotion = st.sidebar.radio("选择一个情绪", ("neutral", "positive", "negative"))
 
-def preprocess(dz, emotion, positive, negative):
-    dz += "\n[Alice]"
-    if emotion == 'positive':
-        dz += " "
-        dz += random.choice(positive)
-    elif emotion == 'negative':
-        dz += " "
-        dz += random.choice(negative)
-    return dz
 
 def main():
     flag = False
@@ -36,12 +26,8 @@ def main():
         flag = True
 
     if st.button("开始生成"):
-        wv = load_wv("word_model_paths/hole-merge")
-
-        positive = ['抱抱', 'patpat', '摸摸', 'dz不哭', '呜呜', '哈哈哈哈', '笑死', '嘎嘎', '同感', '哦', '突突突突突突突突', '可爱捏', '恭喜', '哎呀', wv.index_to_key[1713]+'\n', wv.index_to_key[1456]+'\n', wv.index_to_key[1900]+'\n', wv.index_to_key[1111]+'\n', '正确的', '3.92\n', 'dz好棒！', 'www', '哇', '一眼丁真 ', '冲！', '蹲 ']
-        negative = ['1/10', wv.index_to_key[273]+'\n', '呵呵', '举报了', '寄\n', '寄了\n', '急了急了', '呃', '典\n', '典中典\n', '麻了', '钝角\n', '怎么会事呢\n', '哈人 ', wv.index_to_key[1343]+'\n', wv.index_to_key[1441]+'\n', wv.index_to_key[2679]+'\n', wv.index_to_key[1566]+'\n', wv.index_to_key[2339]+'\n', '爬\n', '出吗\n']
-
-        dz = preprocess(dz, emotion, positive, negative)
+        wv = load_wv("word_model_paths/hole-merge") # load the word model only once
+        dz = preprocess(dz, emotion, wv)
 
         if choice == "HoleAI-small":
             with st.spinner("载入模型中..."):
@@ -80,6 +66,7 @@ def main():
             end_time = time.time()
             st.success("本次生成耗时：{:.4f}秒".format(end_time-start_time))
             st.balloons()
+
 
 if __name__ == "__main__":
     main()
