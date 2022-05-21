@@ -22,7 +22,7 @@ You can try these models with different sizes on your own with the link provided
 - Layer Normalization
 - Fully Connected Layer
 
-## Demo
+## Examples
 ```
 😅
 
