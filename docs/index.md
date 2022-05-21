@@ -20,7 +20,7 @@ You can try these models with different sizes on your own with the link provided
 - Multi-layer LSTM
 - Dropout
 - Layer Normalization
-- Linear
+- Fully Connected Layer
 
 ## Demo
 ```
