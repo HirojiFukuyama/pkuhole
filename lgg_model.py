@@ -51,7 +51,7 @@ class vanilla_LSTM(nn.Module):
 
 
 # the enhanced version is based on the vanilla one above (add something)
-# but somehow it is worse than the vanilla one (WITH BATCHNORM)
+# dropout & layernorm
 class LSTM_enhanced(nn.Module):
     def __init__(self, words_num, embedding_dim, hidden_size, num_layers, dropout=0.5):
         super().__init__()
@@ -60,6 +60,8 @@ class LSTM_enhanced(nn.Module):
         self.Embedding = nn.Embedding(num_embeddings=words_num, embedding_dim=embedding_dim)
         # add dropout to LSTM module
         self.LSTM = nn.LSTM(embedding_dim, hidden_size, num_layers, batch_first=True, dropout=dropout)
+        # add layer normalization
+        # self.Norm = Norm(hidden_size)
         self.Linear = nn.Linear(hidden_size, words_num)
 
 
@@ -68,6 +70,7 @@ class LSTM_enhanced(nn.Module):
         h0 = torch.zeros(self.num_layers, data.shape[0], self.hidden_size, device=device)
         c0 = torch.zeros(self.num_layers, data.shape[0], self.hidden_size, device=device)
         data, (_, _) = self.LSTM(data, (h0, c0))
+        # data = self.Norm(data)
         out = self.Linear(data)
         return out
         
