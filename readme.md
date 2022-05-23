@@ -13,7 +13,7 @@ This project aims to simulate the [hole (树洞)](https://pkuhelper.pku.edu.cn/h
 - `tensorboard==2.7.0`
 - `streamlit==1.5.0`
 
-## File Structure
+<!-- ## File Structure
 - Scripts
   - `dataload.py`: data loading and preprocessing
   - `lgg_models.py`: definition of the models
@@ -36,7 +36,7 @@ This project aims to simulate the [hole (树洞)](https://pkuhelper.pku.edu.cn/h
   - `requirements.txt`: required packages for ```app.py```
   - `presentation.pdf`: presentation for the course report
   - `LICENSE`: open source license
-  - `readme.md`: this file
+  - `readme.md`: this file -->
 
 ## How to use
 - Approach 1: visit [this page](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py).
