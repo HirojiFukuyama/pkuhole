@@ -35,6 +35,7 @@ This project aims to simulate the [hole (树洞)](https://pkuhelper.pku.edu.cn/h
 - Others
   - `requirements.txt`: required packages for ```app.py```
   - `presentation.pdf`: presentation for the course report
+  - `LICENSE`: open source license
   - `readme.md`: this file
 
 ## How to use
