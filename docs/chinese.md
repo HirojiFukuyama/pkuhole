@@ -66,7 +66,7 @@ popi
 
 ## 支持与联系
 
-如果您有任何问题与补充，请发邮件至 **[rtzhao1912@gmail.com](rtzhao1912@gmail.com)**。
+如果您有任何问题与补充，请发邮件至 **rtzhao1912@gmail.com**。
 
 ## 小组成员
 - *匡宇轩*，[北京大学信息科学技术学院](https://eecs.pku.edu.cn)

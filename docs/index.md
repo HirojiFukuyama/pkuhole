@@ -66,7 +66,7 @@ popi
 
 ## Support or Contact
 
-Feel free to email **[rtzhao1912@gmail.com](rtzhao1912@gmail.com)** if you have any question or supplement.
+Feel free to email **rtzhao1912@gmail.com** if you have any question or supplement.
 
 ## Credits
 - *Yuxuan Kuang* from [School of EECS, Peking University](https://eecs.pku.edu.cn)
