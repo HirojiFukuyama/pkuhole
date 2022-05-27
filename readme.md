@@ -7,6 +7,7 @@ This is a course project for the NLP class of ***Introduction to AI*** in PKU.
 This project aims to simulate the [hole (树洞)](https://pkuhelper.pku.edu.cn/hole/) in PKU. Based on the user's input, the AI models will generate replies that are similar to the real hole replies.
 
 ## Environment
+- `python==3.9.6`
 - `torch==1.11.0`
 - `gensim==4.1.2`
 - `numpy==1.21.5`
