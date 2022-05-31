@@ -53,7 +53,7 @@ popi
 ## Let's Try!
 
 <!-- [😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅😅](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py) -->
-[![](Unknown)](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
+[![](src/hole_icon)](https://share.streamlit.io/hirojifukuyama/pkuhole/app.py)
 
 ## Model Details @HoleAI
 

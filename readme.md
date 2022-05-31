@@ -71,4 +71,4 @@ popi
 [Alice] Re 洞主: 或者想聊聊也行，我还挺会聊天的
 ```
 - - -
-**For more details, check out [our website](https://kryptonite.work/pkuhole) or [our presentation note](presentation.pdf).**
+**For more details, check out [our website](https://kryptonite.work/pkuhole) or [our presentation note](docs/src/presentation.pdf).**

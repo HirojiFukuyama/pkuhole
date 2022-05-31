@@ -4,6 +4,18 @@ from gensim.models import Word2Vec
 from utils import *
 import time
 
+st.set_page_config(
+    page_title="P大树洞-爱の引论", 
+    page_icon="docs/src/hole_icon",
+    layout="centered",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'About': "This is a course project for the NLP class of ***Introduction to AI*** in PKU.\n\nThis project aims to simulate the [hole (树洞)](https://pkuhelper.pku.edu.cn/hole/) in PKU. Based on the user's input, the AI models will generate replies that are similar to the real hole replies.",
+        'Report a bug': "https://github.com/HirojiFukuyama/pkuhole/issues",
+        'Get Help': "https://kryptonite.work/pkuhole/"
+    }
+)
+
 @st.cache
 def load_wv(wv_path):
     return Word2Vec.load(wv_path).wv
