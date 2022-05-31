@@ -6,7 +6,7 @@ import time
 
 st.set_page_config(
     page_title="P大树洞-爱の引论", 
-    page_icon="docs/src/hole_icon",
+    page_icon="docs/assets/hole_icon",
     layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
