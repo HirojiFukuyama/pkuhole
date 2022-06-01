@@ -4,6 +4,9 @@
 \usepackage{graphicx}
 \usepackage{authblk}
 \usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+
 \hypersetup{
     hidelinks,
 	colorlinks=true,
@@ -11,7 +14,6 @@
 	pdfstartview=Fit,
 	breaklinks=true
 }
-
 
 \usepackage{listings} % 插入代码用到
 
@@ -44,7 +46,7 @@
 }
 
 
-\title{P大树洞生成器}
+\title{P大树洞生成器设计与实现}
 \author[1]{匡宇轩(2100013089)}
 \author[1]{陈红韵(2100013130)}
 \author[2]{王天源(1700017703)}
@@ -54,9 +56,14 @@
 
 \begin{document}
 
+\pagestyle{fancy}
+\fancyhead[L]{}
+\fancyhead[R]{}
+\fancyhead[C]{\small 北京大学《AI引论》课程小组项目书面报告（2021-2022，春季学期）}
+
 \maketitle
 \newpage
-\renewcommand{\abstractname}{\large 摘要\\}
+\renewcommand{\abstractname}{\large 摘要}
 \begin{abstract}
 \normalsize
     本项目为北京大学信息科学技术学院国家精品课程《人工智能引论》的课程项目。本文为该项目的总结报告。
@@ -126,7 +133,7 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 \subsection{LSTM介绍}
     LSTM，中文为“长短期记忆网络”，是一种循环神经网络，可以学习和预测时间序列。
     
-相较于普通的RNN(如图2)，LSTM的优势在于其可以保持长时间的记忆，并且可以根据监督灵活的选择是否“忘记”，从而可以持久的保存语义信息。这在文本生成的工作中十分重要。
+相较于普通的RNN (如图2)，LSTM的优势在于其可以保持长时间的记忆，并且可以根据监督灵活的选择是否“忘记”，从而可以持久的保存语义信息。这在文本生成的工作中十分重要。
     
     \begin{figure}[!h]
         \centering
@@ -163,7 +170,7 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
         \caption{LSTM单元}
     \end{figure}
 
-    更进一步，我们将LSTM的隐藏层输出再次输入新的LSTM单元，便类似全连接层构造出了多层LSTM(Stacked LSTM)，如图4所示。
+    更进一步，我们将LSTM的隐藏层输出再次输入新的LSTM单元，便类似全连接层构造出了多层LSTM (Stacked LSTM)，如图4所示。
 
     \begin{figure}[!h]
         \centering
@@ -175,7 +182,7 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 \subsection{神经网络构建}
     我们的输入是批量化的由截断的原始文本映射而来的One-hot vectors，其稀疏性不利于训练，所以我们首先将其通过Embedding层，转为dense vectors。
     
-    接着我们依次将其通过Stacked LSTM，Layer Normalization，Fully-Connected Layer层，形成与原向量维度一致的输出向量。
+    接着我们依次将其通过Stacked LSTM，Layer Normalization，Fully-Connected Layer，形成与原向量维度一致的输出向量。
     
     接着我们将其通过Softmax层形成概率分布，将其与原始的One-hot vectors进行交叉熵损失函数计算，再利用梯度进行Backpropagation through time进行参数更新。
     
@@ -189,7 +196,7 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 \subsection{神经网络训练}
     我们使用树洞文本语料库对模型从头开始训练。
     
-    算力平台为北大人工智能集群系统，使用RTX 3080进行训练。训练时间大致为5 hours per epoch，这也与模型的超参数有关。
+    算力平台为北大人工智能集群系统，使用RTX 3080进行训练。训练时间大致为4 hours per 50 epochs，这也与模型的超参数有关。
     
     训练记录截图如图6所示。
     
@@ -202,7 +209,7 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 
 \section{实验结果与分析}
 \subsection{实验结果}
-我们使用\verb|tensorboard|绘制了训练过程中\verb|train loss|, \verb|validation loss|与\verb|epoch|的曲线图，曲线图总览如图7所示。
+我们使用 \verb|tensorboard|绘制了训练过程中 \verb|train loss|, \verb|validation loss|与 \verb|epoch|的曲线图，曲线图总览如图7所示。
 
 \begin{figure}[!h]
         \centering
@@ -225,7 +232,7 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 
 (1). 训练效果较好，损失函数值单调下降，且收敛到了一个比较低的水平。
 
-(2). 随机分割数据集可以起到一定正则化的作用，这使得训练最后\verb|validation loss|低于\verb|train loss|。
+(2). 随机分割数据集可以起到一定正则化的作用，这使得训练最后 \verb|validation loss|低于 \verb|train loss|。
 
 我们在反复训练和调参中也总结出如下结论：
 
@@ -251,7 +258,7 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
         \caption{生成样例2}
 \end{figure}
 
-可以看出，模型产生的回复捕捉到了文本格式，例如\verb|[Alice]|,\verb|[Bob]|,\verb|Re: |等回复格式。此外，模型生成的回复在语言风格上也与真实的树洞文本有很高的相似性。即，“有内味了”。
+可以看出，模型产生的回复捕捉到了文本格式，例如 \verb|[Alice]|, \verb|[Bob]|等人名格式与 \verb|Re 洞主: |等回复格式。此外，模型生成的回复在语言风格上也与真实的树洞文本有很高的相似性。即，“有内味了”。
 
 然而，模型的生成依旧存在一定问题。如：
 
@@ -264,9 +271,9 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 (4). 过拟合现象依旧存在：在较长文本的生成中，模型往往会“照抄”原文，产生大段已有文字。这说明模型的泛化能力依然有待提升。
 
 \subsection{模型部署与可视化}
-模型训练完成后，我们希望能用更加方便与美观的形式呈现模型的实际效果，也希望以此模拟树洞，故我们依托\verb|GitHub Pages|和\verb|streamlit|框架开发了本项目的前端界面。
+模型训练完成后，我们希望能用更加方便与美观的形式呈现模型的实际效果，也希望以此模拟树洞，故我们依托 \verb|GitHub Pages|和 \verb|streamlit|框架开发了本项目的前端界面。
 
-用户点击\href{https://kryptonite.work/pkuhole/}{https://kryptonite.work/pkuhole/}链接即可进入本项目的网站，界面如图11所示。
+用户点击 \href{https://kryptonite.work/pkuhole/}{https://kryptonite.work/pkuhole/} 链接即可进入本项目的网站，界面如图11所示。
 
 \begin{figure}[!h]
         \centering
@@ -303,7 +310,7 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 \subsection{收获}
 通过本项目，我们加深了对Word2Vec、循环神经网络、LSTM的认识，通过实操深入剖析了机器学习的全过程：数据处理、模型搭建、训练评估、模型调参、部署实装，更进一步拓宽了我们对于前沿任务的了解，打开了新世界的大门。
 
-此外，在本项目的完成过程中，我们也砸不断学习新的技术，如训练过程可视化、模型部署、网页搭建等等。在这一过程中，看API文档成为了家常便饭，我们也学习了更多人工智能以外的知识。
+此外，在本项目的完成过程中，我们也在不断学习新的技术，如训练过程可视化、模型部署、网页搭建等等。在这一过程中，看API文档成为了家常便饭，我们也学习了更多人工智能以外的知识。
 
 
 \section*{小组分工}
@@ -325,7 +332,8 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 
 \begin{thebibliography}{99} 
 \addcontentsline{toc}{section}{参考文献}
-\bibitem{ref1}Efficient Estimation of Word Representations in Vector Space, Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean, 2013, \href{https://arxiv.org/abs/1301.3781}{https://arxiv.org/abs/1301.3781}
+\setmainfont{Times New Roman}
+\bibitem{ref1}Efficient Estimation of Word Representations in Vector Space, Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean, 2013, \href{https://arxiv.org/abs/1301.3781/}{https://arxiv.org/abs/1301.3781/}
 \bibitem{ref2}Long short-term memory, S Hochreiter, J Schmidhuber, 1997, \href{https://pubmed.ncbi.nlm.nih.gov/9377276/}{https://pubmed.ncbi.nlm.nih.gov/9377276/}
 \bibitem{ref3}Understanding LSTM Networks, colah's blog, 2015, \href{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}
 \end{thebibliography}
@@ -333,12 +341,12 @@ P大树洞作为校内学生匿名交流平台，是一个完美的语料库（�
 \section*{附录}
 \addcontentsline{toc}{section}{附录}
 
-(1). 本项目的GitHub地址：\href{https://github.com/HirojiFukuyama/pkuhole}{https://github.com/HirojiFukuyama/pkuhole}
+\noindent 1.本项目的GitHub地址：\href{https://github.com/HirojiFukuyama/pkuhole/}{https://github.com/HirojiFukuyama/pkuhole/}
 
-(2). 本项目的GitHub Pages：\href{https://kryptonite.work/pkuhole/}{https://kryptonite.work/pkuhole/}
+\noindent 2.本项目的GitHub Pages：\href{https://kryptonite.work/pkuhole/}{https://kryptonite.work/pkuhole/}
 
-(3). 本项目的人机交互网站：\href{https://share.streamlit.io/hirojifukuyama/pkuhole/app.py}{https://share.streamlit.io/hirojifukuyama/pkuhole/app.py}
+\noindent 3.本项目的人机交互网站：\href{https://share.streamlit.io/hirojifukuyama/pkuhole/app.py/}{https://share.streamlit.io/hirojifukuyama/pkuhole/app.py/}
 
-(4). 训练日志、汇报PPT：详见GitHub仓库
+\noindent 4.训练日志、汇报PPT：详见GitHub仓库
 
 \end{document}
