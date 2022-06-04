@@ -38,32 +38,33 @@ def main():
         flag = True
 
     if st.button("开始生成"):
-        wv = load_wv("word_model_paths/hole-merge") # load the word model only once
-        dz = preprocess(dz, emotion, wv)
+        wv = load_wv("word_model_paths/hole_new") # load the word model only once
+        wv2 = load_wv("word_model_paths/hole-merge") # original
+        dz = preprocess(dz, emotion, wv2)
 
         if choice == "HoleAI-small":
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/hole-merge_50_128_3_50_2022-05-07_14_21_34")
+                model = load_model("lgg_model_paths/new/hole-merge_30_256_3_50_2022-06-03_06_55_44")
                 model.eval()
 
         elif choice == "HoleAI-medium":
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/hole-merge_50_256_3_50_2022-05-07_14_27_01")
+                model = load_model("lgg_model_paths/new/hole-merge_30_512_2_50_2022-06-03_06_57_00")
                 model.eval()
 
         elif choice == "HoleAI-large":
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/hole-merge_30_512_3_50_2022-05-04_03_17_17")
+                model = load_model("lgg_model_paths/new/hole-merge_30_512_3_50_2022-06-03_03_19_13")
                 model.eval()
 
         elif choice == "HoleAI-ultra":
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/hole-merge_30_512_4_50_2022-05-07_09_43_06")
+                model = load_model("lgg_model_paths/new/hole-merge_30_512_4_50_2022-06-03_06_54_54")
                 model.eval()
 
         else:
             with st.spinner("载入模型中..."):
-                model = load_model("lgg_model_paths/hole-merge_30_512_3_50_2022-05-04_03_17_17") # large
+                model = load_model("lgg_model_paths/new/hole-merge_30_512_3_50_2022-06-03_03_19_13") # large
                 model.eval()
 
         with st.spinner("生成中..."):

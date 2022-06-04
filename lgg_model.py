@@ -63,10 +63,12 @@ class LSTM_enhanced(nn.Module):
         # add layer normalization
         # self.Norm = Norm(hidden_size)
         self.Linear = nn.Linear(hidden_size, words_num)
+        # self.attn = nn.MultiheadAttention(hidden_size, num_heads=8)
 
 
     def forward(self, data):
         data = self.Embedding(data)
+        # data, _ = self.attn(data, data, data) # attention
         h0 = torch.zeros(self.num_layers, data.shape[0], self.hidden_size, device=device)
         c0 = torch.zeros(self.num_layers, data.shape[0], self.hidden_size, device=device)
         data, (_, _) = self.LSTM(data, (h0, c0))
@@ -106,10 +108,12 @@ class GRU_enhanced(nn.Module):
         self.GRU = nn.GRU(embedding_dim, hidden_size, num_layers, batch_first=True, dropout=dropout)
         self.Linear = nn.Linear(hidden_size, words_num)
         self.norm = Norm(hidden_size)
+        self.attn = nn.MultiheadAttention(hidden_size, num_heads=8)
 
 
     def forward(self, data):
         data = self.Embedding(data)
+        data, _ = self.attn(data, data, data)
         a0 = torch.zeros(self.num_layers, data.shape[0], self.hidden_size, device=device)
         data, _ = self.GRU(data, a0)
         # add layer norm
