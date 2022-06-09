@@ -26,7 +26,7 @@ def load_model(model_path):
 
 st.title("P大树洞-爱の引论")
 st.subheader("欢迎来到P大树洞！@HoleAI")
-choice = st.sidebar.radio("选择一个模型", ("HoleAI-small", "HoleAI-medium", "HoleAI-large", "HoleAI-ultra"), index=0)
+choice = st.sidebar.radio("选择一个模型", ("HoleAI-small", "HoleAI-medium", "HoleAI-large", "HoleAI-ultra"), index=2)
 emotion = st.sidebar.radio("选择一个情绪", ("neutral", "positive", "negative"))
 
 
