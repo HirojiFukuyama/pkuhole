@@ -5,11 +5,8 @@ import random
 def softmax(x):
     return np.exp(x) / np.sum(np.exp(x))
 
-def gen(model, wv, dz, flag, count=5, device='cpu'):
+def gen(model, wv, dz, count=5, device='cpu', step_callback=None):
     """generate replies"""
-
-    if flag == False:
-        return
 
     del_lst = []
     lst = list(dz)
@@ -31,7 +28,7 @@ def gen(model, wv, dz, flag, count=5, device='cpu'):
         x = torch.Tensor(data)
         x = x.to(torch.long).to(device)
         y = model(x)[0][-1]
-        p = y.detach().numpy()
+        p = y.detach().cpu().numpy()
         p = softmax(p)
 
         idx = np.random.choice(np.arange(len(wv)), p=p)
@@ -42,6 +39,9 @@ def gen(model, wv, dz, flag, count=5, device='cpu'):
 
         if new_word == '\n':
             i += 1
+        
+        if step_callback:
+            step_callback()
     
     out = "".join(lst)
 
